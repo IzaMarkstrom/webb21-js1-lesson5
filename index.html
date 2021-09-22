@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>title</title>
+        <script>
+            const library = [ 
+                {
+                    author: 'Bill Gates',
+                    title: 'The Road Ahead',
+                    readingStatus: true
+                },
+                {
+                    author: 'Steve Jobs',
+                    title: 'Walter Isaacson',
+                    readingStatus: true
+                },
+                {
+                    author: 'Suzanne Collins',
+                    title:  'Mockingjay: The Final Book of The Hunger Games', 
+                    readingStatus: false
+                }
+            ]
+
+            /*
+            Hämtar författarna från objektet library och lägger in i "demo"-p-taggen i HTML
+            genom att lägga till "child" till variabeln "parent" som ju är "demo"-taggen.
+            */
+            function ourFunction() {
+                console.log("hej")
+                const parent = document.getElementById("demo")
+                library.forEach(function(book){
+                    const child = document.createElement("p")
+                    child.innerHTML = `${book.author}`
+                    parent.appendChild(child)
+                })
+
+            }
+        </script>
+    </head>
+    
+    <body>
+        <h1 onclick="ourFunction()">Hello World!</h1>
+        <p id="demo"></p>
+
+        <form action="">
+            <div>
+                <label for="firstName">Fyll i ditt förnamn</label>
+                <input id="firstName" name="first-name" type="text"/> <!-- name="first-name" kommer att synas när man uppdaterar sidan i url-->
+            </div>
+
+            <div>
+                <label for="lastName">Fyll i ditt efternamn</label>
+                <input id="lastName" name="last-name" type="text"/>
+            </div>
+            <div>
+                <label for="phone">Telefon</label>
+                <input id="phone" name="phone-number" type="tel"/>
+            </div>
+            <div>
+                <label for="password">Lösenord</label>
+                <input id="password" name="password" type="password"/> <!-- Man skriver inte ut password i name dock för den syns i url'en-->
+            </div>
+            <div>
+                <label for="date">Datum</label>
+                <input id="date" name="date" type="date"/>
+            </div>
+
+            <div>
+                <label for="cars">Välj din bil</label>
+                <select name="cars" id="cars">
+                    <option value="1">Volvo</option>
+                    <option value="2">Saab</option>
+                    <option value="3" selected>Audi</option>  <!--Kommer att visas först-->
+                </select>
+            </div>
+
+            <div>
+                <label for="fruits">Välj dina favorit frukter</label>
+                <select name="fruits" id="fruits" multiple>
+                    <option value="1">Äpple</option>
+                    <option value="2">Banan</option>
+                    <option value="3">Mango</option>
+                    <option value="4">Päron</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="lifestory">Skriv din livshistoria</label>
+                <textarea name="lifestory" id="lifestory" cols="30" rows="10"></textarea>
+            </div>
+
+            <button type="submit">Skicka in</button>
+            <button type="reset">Nollställ</button>
+        </form>
+    </body>
+</html>
